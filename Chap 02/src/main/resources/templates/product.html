@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta http-equiv="Content-Type" content="text/html;
+   charset=ISO-8859-1"/>
+    <link rel="stylesheet"
+          href="//netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap.min.css"/>
+    <title>Products</title>
+</head>
+<body>
+<section>
+    <div class="jumbotron">
+        <div class="container">
+            <h1>Products</h1>
+        </div>
+    </div>
+</section>
+<section class="container">
+    <div class="row">
+        <div class="col-md-5">
+            <h3 th:text="${product.name}"></h3>
+            <p  th:text="${product.description}"></p>
+            <p><strong>Item Code : </strong><span class="label label warning"><span th:text="${product.productId}"/></span></p>
+            <p><strong>manufacturer</strong><span th:text="${product.manufacturer}"/> </p>
+            <p><strong>category</strong><span th:text="${product.category}"/></p>
+            <p><strong>Availble units in stock </strong><span th:text="${product.unitsInStock}"/></p>
+            <h4 th:text="${product.unitPrice}"> USD</h4>
+            <p><a href="#" class="btn btn-warning btn-large"><span class="glyphicon-shopping-cart glyphicon"></span> Order Now</a></p>
+        </div>
+    </div>
+</section>
+</body>
+</html>

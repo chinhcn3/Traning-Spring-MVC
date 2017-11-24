@@ -1,0 +1,9 @@
+/Users/daudm/Documents/Company/Tenkibot/trainingmvc/Chapter02/src/main/java/com/packt/repository/impl/InMemoryProductRepository.java
+/Users/daudm/Documents/Company/Tenkibot/trainingmvc/Chapter02/src/main/java/com/packt/model/Product.java
+/Users/daudm/Documents/Company/Tenkibot/trainingmvc/Chapter02/src/main/java/com/packt/service/ProductService.java
+/Users/daudm/Documents/Company/Tenkibot/trainingmvc/Chapter02/src/main/java/com/packt/config/RootApplicationContextConfig.java
+/Users/daudm/Documents/Company/Tenkibot/trainingmvc/Chapter02/src/main/java/com/packt/controller/HomeController.java
+/Users/daudm/Documents/Company/Tenkibot/trainingmvc/Chapter02/src/main/java/com/packt/controller/ProductController.java
+/Users/daudm/Documents/Company/Tenkibot/trainingmvc/Chapter02/src/main/java/com/packt/repository/ProductRepository.java
+/Users/daudm/Documents/Company/Tenkibot/trainingmvc/Chapter02/src/main/java/com/packt/service/impl/ProductServiceImpl.java
+/Users/daudm/Documents/Company/Tenkibot/trainingmvc/Chapter02/src/main/java/com/packt/WebstoreApplication.java
