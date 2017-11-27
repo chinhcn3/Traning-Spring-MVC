@@ -68,7 +68,10 @@ public class ProductController {
         model.addAttribute("products", productService.getProductsByFilter(filterParams));
         return "products";
     }
-
+    @RequestMapping("/products/invalidPromoCode")
+    public String invalidPromoCode() {
+        return "invalidPromoCode";
+    }
     @RequestMapping("/product")
     public String getProductById(@RequestParam("id") String productId, Model model) {
         model.addAttribute("product", productService.getProductById(productId));
@@ -117,9 +120,9 @@ public class ProductController {
                                 "category",
                                 "unitsInStock",
                                 "condition",
-                                "productImage");
+                                "productImage",
+                                "language");
     }
-
     @ExceptionHandler(ProductNotFoundException.class)
     public ModelAndView handleError(HttpServletRequest req, ProductNotFoundException exception) {
         ModelAndView mav = new ModelAndView();
