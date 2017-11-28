@@ -5,7 +5,11 @@ import java.util.List;
 import java.util.Map;
 
 import javax.servlet.http.HttpServletRequest;
+import javax.validation.Valid;
 
+import com.packt.webstore.validator.ProductImageValidator;
+import com.packt.webstore.validator.ProductValidator;
+import com.packt.webstore.validator.UnitsInStockValidator;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -37,6 +41,13 @@ public class ProductController {
 
     @Autowired
     private ProductService productService;
+    @Autowired
+    private UnitsInStockValidator unitsInStockValidator;
+    @Autowired
+    private ProductImageValidator productImageValidator;
+    @Autowired
+    private ProductValidator productValidator;
+
 
     @RequestMapping("/products")
     public String list(Model model) {
@@ -68,7 +79,10 @@ public class ProductController {
         model.addAttribute("products", productService.getProductsByFilter(filterParams));
         return "products";
     }
-
+    @RequestMapping("/products/invalidPromoCode")
+    public String invalidPromoCode() {
+        return "invalidPromoCode";
+    }
     @RequestMapping("/product")
     public String getProductById(@RequestParam("id") String productId, Model model) {
         model.addAttribute("product", productService.getProductById(productId));
@@ -83,9 +97,11 @@ public class ProductController {
     }
 
     @RequestMapping(value = "/products/add", method = RequestMethod.POST)
-    public String processAddNewProductForm(@ModelAttribute("newProduct") Product newProduct,
+    public String processAddNewProductForm(@ModelAttribute("newProduct") @Valid Product newProduct,
                                            BindingResult result, HttpServletRequest request) {
-
+        if(result.hasErrors()) {
+            return "addProduct";
+        }
         String[] suppressedFields = result.getSuppressedFields();
         if (suppressedFields.length > 0) {
             throw new RuntimeException("Attempting to bind disallowed fields: " + StringUtils
@@ -109,6 +125,9 @@ public class ProductController {
 
     @InitBinder
     public void initialiseBinder(WebDataBinder binder) {
+        binder.setValidator(unitsInStockValidator);
+        binder.setValidator(productImageValidator);
+        binder.setValidator(productValidator);
         binder.setAllowedFields("productId",
                                 "name",
                                 "unitPrice",
@@ -117,9 +136,9 @@ public class ProductController {
                                 "category",
                                 "unitsInStock",
                                 "condition",
-                                "productImage");
+                                "productImage",
+                                "language");
     }
-
     @ExceptionHandler(ProductNotFoundException.class)
     public ModelAndView handleError(HttpServletRequest req, ProductNotFoundException exception) {
         ModelAndView mav = new ModelAndView();

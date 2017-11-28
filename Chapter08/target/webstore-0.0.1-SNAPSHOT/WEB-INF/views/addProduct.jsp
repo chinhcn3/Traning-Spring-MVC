@@ -10,6 +10,13 @@
 </head>
 <body>
 	<section>
+		<div class="pull-right" style="padding-right: 50px">
+			<a href="?language=en">English</a>|<a href="?language=nl">Dutch</a>
+			<a href="<c:url value="/logout" />">Logout</a>
+		</div>
+	</section>
+
+	<section>
 		<div class="jumbotron">
 			<div class="container">
 				<h1>Products</h1>
@@ -20,6 +27,7 @@
 	<section class="container">
 		<form:form method="POST" modelAttribute="newProduct"
 			class="form-horizontal" enctype="multipart/form-data">
+			<form:errors path="*" cssClass="alert alert-danger" element="div"/>
 			<fieldset>
 				<legend>Add new product</legend>
 
@@ -29,6 +37,7 @@
 					<div class="col-lg-10">
 						<form:input id="productId" path="productId" type="text"
 							class="form:input-large" />
+						<form:errors path="productId" cssClass="text-danger"/>
 					</div>
 				</div>
 
@@ -38,6 +47,7 @@
 					<div class="col-lg-10">
 						<form:input id="name" path="name" type="text"
 							class="form:input-large" />
+						<form:errors path="name" cssClass="text-danger"/>
 					</div>
 				</div>
 
@@ -47,6 +57,7 @@
 					<div class="col-lg-10">
 						<form:input id="unitPrice" path="unitPrice" type="text"
 							class="form:input-large" />
+						<form:errors path="unitPrice" cssClass="text-danger"/>
 					</div>
 				</div>
 
@@ -105,6 +116,7 @@
 					<div class="col-lg-10">
 						<form:input id="productImage" path="productImage" type="file"
 							class="form:input-large" />
+						<form:errors path="productImage" cssClass="text-danger"/>
 					</div>
 				</div>
 
