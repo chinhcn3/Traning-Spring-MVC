@@ -1,6 +1,7 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
 <%@ taglib prefix="spring" uri="http://www.springframework.org/tags" %>
+<%@ page pageEncoding="UTF-8" %>
 <html>
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
@@ -11,7 +12,7 @@
 <body>
 <section>
     <div class="pull-right" style="padding-right:50px">
-        <a href="?language=en">English</a>|<a href="?language=nl">Dutch</a>
+        <a href="?language=en">English</a>|<a href="?language=nl">Dutch</a>|<a href="?language=vi">Viet Nam</a>|<a href="?language=fr">Franch</a>
     </div>
 </section>
 <section>

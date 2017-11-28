@@ -66,6 +66,7 @@ public class WebApplicationContextConfig extends WebMvcConfigurerAdapter {
     public MessageSource messageSource() {
         ResourceBundleMessageSource resource = new ResourceBundleMessageSource();
         resource.setBasename("messages");
+        resource.setDefaultEncoding("UTF-8");
         return resource;
     }
 
